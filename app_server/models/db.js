@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
-const dbURI = 'mongodb://localhost/Loc8r';
+//const dbURI = 'mongodb://localhost/Loc8r';
+const dbURI ='mongodb+srv://22eg106b56:Bindu@456@cluster1.t320w.mongodb.net/Loc8r';
 mongoose.connect(dbURI, {useNewUrlParser: true});
 mongoose.connection.on('connected', () => {
 console.log(`Mongoose connected to ${dbURI}`);
 });
+
 mongoose.connection.on('error', err => {
 console.log(`Mongoose connection error: ${err}`);
 });
@@ -34,3 +36,4 @@ gracefulShutdown('Heroku app shutdown', () => {
 process.exit(0);
 });
 });
+require('.locations.js')
